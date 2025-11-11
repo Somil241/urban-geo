@@ -2,6 +2,14 @@
 FastAPI service for Urban-Geo traffic prediction API.
 Provides endpoints for current and future traffic predictions.
 """
+import sys
+from pathlib import Path
+
+# Add project root to Python path to ensure imports work
+project_root = Path(__file__).parent.parent
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
+
 from fastapi import FastAPI, HTTPException, Depends
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel, Field
@@ -14,7 +22,6 @@ from contextlib import asynccontextmanager
 from ml.model_training import TrafficPredictor
 from config import DB_CONFIG
 from sqlalchemy import create_engine, text
-from pathlib import Path
 
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)

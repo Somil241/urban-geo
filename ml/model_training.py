@@ -2,6 +2,13 @@
 Machine learning model training for traffic prediction.
 Uses LightGBM for regression and classification tasks.
 """
+import sys
+from pathlib import Path
+
+# Add project root to Python path to ensure imports work
+project_root = Path(__file__).parent.parent
+if str(project_root) not in sys.path:
+    sys.path.insert(0, str(project_root))
 import pandas as pd
 import numpy as np
 from sklearn.model_selection import train_test_split
