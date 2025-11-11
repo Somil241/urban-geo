@@ -52,3 +52,4 @@ dist/
 build/
 *.egg-info/
 database/ForExportNewApi.csv
+database/ForExportNewApi.csv
